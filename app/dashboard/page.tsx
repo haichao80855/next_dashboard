@@ -10,13 +10,11 @@ import { Card } from '../ui/dashboard/cards';
 
 export default async function Page() {
   // 解决请求瀑布的问题
-  const revenue = fetchRevenue();
-  const latestInvoices = fetchLatestInvoices();
-  const total_data = fetchCardData();
-  const data = await Promise.all([revenue, latestInvoices, total_data]);
-  const revenueData = data[0];
-  const latestInvoicesData = data[1];
-  const totalData = data[2];
+  const [revenueData, latestInvoicesData, totalData] = await Promise.all([
+    fetchRevenue(),
+    fetchLatestInvoices(),
+    fetchCardData(),
+  ]);
   return (
     <main>
       <h1 className={`${lusitana.className} mb-4 text-xl md:text-2xl`}>
