@@ -6,9 +6,11 @@ import {
 import LatestInvoices from '@/app/ui/dashboard/latest-invoices';
 import RevenueChart from '@/app/ui/dashboard/revenue-chart';
 import { lusitana } from '@/app/ui/fonts';
-import { Card } from '../ui/dashboard/cards';
+import { Card } from '../../ui/dashboard/cards';
 
 export default async function Page() {
+  console.log('Page loaded');
+
   // 解决请求瀑布的问题
   const [revenueData, latestInvoicesData, totalData] = await Promise.all([
     fetchRevenue(),
